@@ -11,12 +11,7 @@ export default {
 </script>
 
 <style>
-body{
-	width: 100%;
-	height: 100%;
+html,body{
+  height: 100%;
 }
-  #app{
-    padding-bottom: 150px;
-  	background: #2a283e;
-  }
 </style>

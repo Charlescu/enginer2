@@ -1,163 +1,51 @@
 <template>
-  <div class="hello">
-    <ul class="Menu"> 
-      <li class="list_menu" 
-          v-for="(item, index) of mainList" 
-          :key="index" 
-          @click="handleClickShows"
-          @click="handleClickGo"
-          v-bind:class="{ actived: isActive }"
-      >
-         <em v-html="item.icons" class="iconfont"></em>
-         {{ item.data.menuName }}
-         <em v-html="main_icons" class="iconfont main_icons"></em>  
-         <div v-if="item.childTreeNode && listShows">
-           <default-menu :list="item.childTreeNode.menuName1"></default-menu>
-         </div>
-      </li> 
-    </ul>
+  <div class="mian">
+    <el-aside>
+      <el-col :span="24">
+        <div class="grid-content bg-purple-dark whiteColor fontWeight6 paddingLeft2" v-for="(item, index) of menuList">{{ item.name }}</div>
+      </el-col>
+    </el-aside>
   </div>
 </template>
 
 <script>
 export default {
   name: 'DefaultMenu',
+  components: {
+   
+  },
   data () {
     return {
-      listShows: false,
-      isActive: false,
-      main_icons: '&#xeb8f;',
-      mainList: [
-          {
-            "id": "1",
-            "icons": "&#xeb8f;",
-            "data": {
-                "menuName": "首页",
-                "menuCode": "",
-            }
-          }, 
-          {
-            "id": "2",
-            "icons": "&#xeb61;",
-            "data": {
-                "menuName": "能耗监控",
-                "menuCode": "BusClock",
-            },
-            "childTreeNode": [
-              {
-                "menuName1": "电力",
-                "menuName2": "水量",
-                "menuName1": "蒸汽量"
-              }
-            ]
-          }, 
-          {
-            "id": "3",
-            "icons": "&#xebb7;",
-            "data": {
-                "menuName": "实时监控",
-                "menuCode": "",
-            }
-          }, 
-          {
-            "id": "4",
-            "icons": "&#xec4e;",
-            "data": {
-                "menuName": "能源综合分析",
-                "menuCode": "",
-            }
-          },
-          {
-            "id": "5",
-            "icons": "&#xeb66;",
-            "data": {
-                "menuName": "能耗公示",
-                "menuCode": "",
-            }
-          },
-          {
-            "id": "6",
-            "icons": "&#xeb66;",
-            "data": {
-                "menuName": "能耗报告",
-                "menuCode": "",
-            }
-          },
-          {
-            "id": "7",
-            "icons": "&#xeb96;",
-            "data": {
-                "menuName": "预警管理",
-                "menuCode": "",
-            }
-          },
-          {
-            "id": "8",
-            "icons": "&#xeb8d;",
-            "data": {
-                "menuName": "系统设置",
-                "menuCode": "",
-            }
-          },
-          {
-            "id": "9",
-            "icons": "&#xebd1;",
-            "data": {
-                "menuName": "大屏展示",
-                "menuCode": "",
-            }
-          }
-        ]
-      }
-  },
-  computed: {
-            
-        },
-  methods: {
-      handleClickShows: function () {
-        this.listShows != this.listShows
-        this.isActive != this.isActive
-      },
-      handleClickGo: function () {
-        this.$emit('goPages','index')
-      }
+      msg: 'weizhixinxi', 
+      menuList: [
+      {id: '001',name: '首页'},
+      {id: '001',name: '能耗监控',childTree:[{id: '0011',name: '电力'},{id: '0012',name: '水量'},{id: '0013',name: '蒸汽量'}]},
+      {id: '001',name: '实时监控'},
+      {id: '001',name: '能源综合分析',childTree:[{id: '0011',name: '电力'},{id: '0012',name: '水量'},{id: '0013',name: '蒸汽量'}]},
+      {id: '001',name: '能耗公示'},
+      {id: '001',name: '能耗报告',childTree:[{id: '0011',name: '电力'},{id: '0012',name: '水量'},{id: '0013',name: '蒸汽量'}]},
+      {id: '001',name: '预警管理',childTree:[{id: '0011',name: '电力'},{id: '0012',name: '水量'},{id: '0013',name: '蒸汽量'}]},
+      {id: '001',name: '系统设置',childTree:[{id: '0011',name: '电力'},{id: '0012',name: '水量'},{id: '0013',name: '蒸汽量'}]},
+      {id: '001',name: '大屏展示'},
+      ]
+    }
   }
 }
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-body{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-*{
-  margin: 0;
-  padding: 0;
-}
-.hello{
-  display: block;
-  float: left;
-}
-.Menu {
-  width: 150px;
-  height: 600px;
-  padding: 0 0 0 20px;
-  padding-top: 20px;
-  list-style-type: none;
-  display: inline-block;
-  color: #f5f5f5;
-  background: #424764;
-}
-.list_menu {
-  float:left;
-  width: 100%;
-  line-height: 30px;
-}
-.main_icons {
-  float: right;
-  margin-right: 5px;
-}
-.actived {
-  color: #fff;
-}
+  .el-aside {
+    height: 100%;
+   
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
 </style>

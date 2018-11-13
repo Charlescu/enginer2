@@ -1,60 +1,40 @@
 <template>
-  <div class="hello">
-    <div class="logos"> {{ logos }}</div>
-    <div class="head_titles">{{ titles }}</div>
-    <div class="login"><em class="iconfont man_icon" v-html="icons"></em>登录</div>
+  <div class="mian">
+    <el-header >
+      <el-col :span="24">
+        <div class="grid-content bg-purple-dark whiteColor fontWeight6 paddingLeft2">fsdgdfsg</div>
+      </el-col>
+    </el-header>
   </div>
 </template>
 
 <script>
 export default {
   name: 'DefaultHeader',
+  components: {
+   
+  },
   data () {
     return {
-      logos: '智能云',
-      titles: '津安能源云 三中心医院专版',
-      icons: '&#xeb8a;'
-      }
+      msg: 'weizhixinxi', 
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-body{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-*{
-  margin: 0;
-  padding: 0;
-}
-
-.hello{
-  line-height: 50px;
-  min-width: 530px;
-  text-indent: 2em;
-  background: #424764;
-  display: flex;
-  justify-content: space-between;
-}
-.logos{
-  width: 170px;
-  color: #fff;
-  font-weight: 600;
-  text-align: center;
-  background: #4c61ee;
-}
-.head_titles {
-  color: #fff;
-}
-.man_icon {
-  margin-right: 5px;
-}
-.login{
-  margin-right: 35px;
-  color: #ccc;
-  display: inline-block;
-}
+  .el-header {
+    line-height: 80px;
+    padding: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
 </style>
